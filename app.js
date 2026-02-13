@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from 'mongoose';
+import employeeRoutes from "./routes/employeeRoutes.js";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // URL Encoded Middleware
 app.use(express.urlencoded({ extended: true }));
+app.use("/employees", employeeRoutes);
 
 app.get("/", (req, res) => {
   res.send("Employee API Running...");
